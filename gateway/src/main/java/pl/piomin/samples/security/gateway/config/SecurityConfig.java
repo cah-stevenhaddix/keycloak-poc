@@ -2,6 +2,7 @@ package pl.piomin.samples.security.gateway.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity;
 import org.springframework.security.config.web.server.ServerHttpSecurity;
 import org.springframework.security.web.server.SecurityWebFilterChain;
@@ -14,9 +15,9 @@ public class SecurityConfig {
 
 	@Bean
 	public SecurityWebFilterChain springSecurityFilterChain(ServerHttpSecurity http) {
-		http.authorizeExchange(exchanges -> exchanges.anyExchange().authenticated())
+		http.cors().and()
+			.authorizeExchange(exchanges -> exchanges.pathMatchers(HttpMethod.OPTIONS).permitAll().anyExchange().authenticated())
 			.oauth2Login(withDefaults());
-		http.csrf().disable();
 		return http.build();
 	}
 
