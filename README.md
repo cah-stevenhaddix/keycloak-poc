@@ -11,6 +11,7 @@ docker compose up
  ** **first time only** **
 
 - Login to portal @ http://localhost:8080
+
 __Credentials__
 ```
 User: admin
