@@ -23,11 +23,15 @@ User: admin
 Password: Pa55w0rd
 ```
 
-- Navigate `Master Realm -> Import`
-- Import realm-export.json (skip on existing)
-- Create user `Master Realm -> Users -> Create Users`
-- Enter any username and password (disable temp password)
-- Generate client secret for `Clients -> spring-with-test-scope -> Credentials -> Regenerate Sercet` in the
+- Import Realm Configuration
+  - Navigate to `Master Realm -> Import`
+  - Upload `./realm-export.json` (skip on existing)
+    - Note: It's been reported this doesn't work the first time. Try twice?
+- Create User
+  - Navigate to `Master Realm -> Users -> Create Users`
+  - Enter any username and password (disable temp password)
+- Generate Client Secret
+  - Navigate to `Clients -> spring-with-test-scope -> Credentials -> Regenerate Sercet` in the
   - Update `client-secret` in `gateway/src/main/resources/application.yml` with generated secret
   - Note: There may be a way to script this but currently it doesn't get exported in the Realm Export
 
