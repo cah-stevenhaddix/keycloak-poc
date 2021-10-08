@@ -4,16 +4,7 @@ spring:
   cloud:
     gateway:
       default-filters:
-        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
         - TokenRelay
-      globalcors:
-        add-to-simple-url-handler-mapping: true
-        corsConfigurations:
-          "[/**]":
-            allowedOrigins: "http://localhost:3001"
-            allowedMethods: "*"
-            allowedHeaders: "*"
-            allowCredentials: true
       routes:
         - id: callme-service
           uri: http://127.0.0.1:8040
@@ -26,15 +17,15 @@ spring:
       client:
         provider:
           keycloak:
-            token-uri: http://localhost:8080/auth/realms/master/protocol/openid-connect/token
-            authorization-uri: http://localhost:8080/auth/realms/master/protocol/openid-connect/auth
-            userinfo-uri: http://localhost:8080/auth/realms/master/protocol/openid-connect/userinfo
+            token-uri: http://localhost:3050/auth/realms/master/protocol/openid-connect/token
+            authorization-uri: http://localhost:3050/auth/realms/master/protocol/openid-connect/auth
+            userinfo-uri: http://localhost:3050/auth/realms/master/protocol/openid-connect/userinfo
             user-name-attribute: preferred_username
         registration:
           keycloak-with-test-scope:
             provider: keycloak
             client-id: spring-with-test-scope
-            client-secret: ba7a0c3d-85cb-49ea-842a-e785f6d5f902
+            client-secret: 0d004221-6916-404a-aaa4-eeff7e680331
             authorization-grant-type: authorization_code
             redirect-uri: "{baseUrl}/login/oauth2/code/keycloak"
           keycloak-without-test-scope:

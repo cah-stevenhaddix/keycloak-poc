@@ -5,6 +5,13 @@ volumes:
     driver: local
 
 services:
+  nginx:
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      context: ./nginx
+    ports:
+      - "3050:80"
   postgres:
     image: postgres
     volumes:
@@ -24,6 +31,8 @@ services:
       DB_PASSWORD: password
       KEYCLOAK_USER: admin
       KEYCLOAK_PASSWORD: Pa55w0rd
+      KEYCLOAK_FRONTEND_URL: "http://localhost:3050/auth"
+      PROXY_ADDRESS_FORWARDING: "true"
       # Uncomment the line below if you want to specify JDBC parameters. The parameter below is just an example, and it shouldn't be used in production without knowledge. It is highly recommended that you read the PostgreSQL JDBC driver documentation in order to use it.
       #JDBC_PARAMS: "ssl=true"
     ports:

@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/callme")
-@CrossOrigin(origins = "http://localhost:3001")
 public class CallmeController {
 
 	@GetMapping("/ping")

@@ -17,7 +17,7 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
-		http.cors().and().authorizeRequests(authorize -> authorize.antMatchers(HttpMethod.OPTIONS).permitAll().anyRequest().authenticated())
+		http.authorizeRequests(authorize -> authorize.anyRequest().authenticated())
 				.oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt);
 	}
 }

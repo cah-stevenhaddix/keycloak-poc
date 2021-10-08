@@ -24,7 +24,6 @@ public class GatewayApplication {
 	}
 
 	@GetMapping(value = "/token")
-	@CrossOrigin(origins = "http://localhost:3001")
 	public Mono<String> getHome(@RegisteredOAuth2AuthorizedClient OAuth2AuthorizedClient authorizedClient) {
 		return Mono.just(authorizedClient.getAccessToken().getTokenValue());
 	}
