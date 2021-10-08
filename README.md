@@ -15,13 +15,11 @@ docker compose up
 \*\* **first time only** \*\*
 
 - Login to portal @ http://localhost:3050/auth
-
-**Credentials**
-
-```
-User: admin
-Password: Pa55w0rd
-```
+  - Credentials
+  ```
+  User: admin
+  Password: Pa55w0rd
+  ```
 
 - Import Realm Configuration
   - Navigate to `Master Realm -> Import`
