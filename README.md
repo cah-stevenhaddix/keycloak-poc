@@ -31,8 +31,9 @@ Password: Pa55w0rd
   - Update `client-secret` in `gateway/src/main/resources/application.yml` with generated secret
   - Note: There may be a way to script this but currently it doesn't get exported in the Realm Export
 
-### Run Services
-
+### Run SpringBoot Services
+Use IDE or command line of your choice.
+Project Directories
 - gateway
 - callme
 
